@@ -1,0 +1,3 @@
+ShortQR - link shortener which gives a shorten link and also a qr 
+code for that shortened link.
+
