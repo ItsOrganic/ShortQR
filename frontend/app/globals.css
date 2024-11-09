@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+  background-color: rgb(46, 45, 45);
+}
+
+.header--image {
+  display: flex;
+  height: 100%;
+  margin: 0 1%;
+}
+
+.header {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  padding: 20px;
+  background-color: #111111;
+  color: azure;
+  border: 5px solid #111111;
+  border-radius: 8px;
+}
+
+.header--title {
+  margin: 0 auto;
+  font-size: large;
+  font-style: oblique;
+}
+
+.hero {
+  --s: 100px;
+  --_g: #0000 90deg, rgba(30, 170, 170, 0.1) 0;
+  background: 
+    conic-gradient(from 90deg at 2px 2px, var(--_g)) 0 0 / var(--s) var(--s),
+    conic-gradient(from 90deg at 1px 1px, var(--_g)) 0 0 / calc(var(--s) / 5) calc(var(--s) / 5);
+  background-color: #1f1d1d;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adds even spacing between elements */
+  text-align: center;
+}
+
+.middle {
+  color: rgb(252, 251, 251);
+  font-size: 3em;
+  margin: 0;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 251, 251);
+  font-size: 1em;
+  margin: 0;
+}
+
+input {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px; /* Adjusted width for better visibility */
+  border-radius: 5px;
+  margin-bottom: 150px;
+  border: 1px solid rgb(252, 251, 251);
+  background-color: #333;
+  color: #fff;
+}
+
+.click {
+  display: inline-block; /* Ensure it's not a block-level element */
+  color: rgb(24, 23, 23);
+  background-color: #e23838;
+  border: none; /* Remove border */
+  border-radius: 8px; /* Adjust to your design */
+  height: 48px;
+  padding-right: 15px;
+  margin-left: 10px; /* Add margin to separate from input */
+  
+  /* Adjust these for size */
+  padding: 5px 15px; /* Reduce vertical padding to make it shorter */
+  
+  font-size: 1em; /* Adjust size if necessary */
+  line-height: normal; /* Set to normal to avoid excessive height */
+  cursor: pointer; /* Change cursor to pointer */
+  min-width: 100px; /* Set a minimum width if desired */
+}
+
+.qr-code {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 150px;
+}
+
+.short-link {
+  display: inline;
+  color: rgb(252, 251, 251);
+  font-size: 1em;
+  margin-bottom: 60%;
+}
+.out-container {
+  display: inline;
+  padding-bottom: 50px;
+
+  flex-direction: column;
+  align-items: center;
+}
+.short-link:hover {
+
+  text-decoration: underline;
+}  
+
+.copy-button {
+  display: inline-block;
+  color: rgb(24, 23, 23);
+  background-color: #e23838;
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  padding-right: 15px;
+  margin-left: 10px;
+  padding: 5px 15px;
+  font-size: 1em;
+  line-height: normal;
+  cursor: pointer;
+  min-width: 100px;
+}
