@@ -2,146 +2,208 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #e23838;
+  --background-dark: #1a1a1a;
+  --text-light: #fcfbfb;
+  --accent-color: #1eaaaa;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Karla", sans-serif;
+  font-family: 'Inter', 'Karla', sans-serif;
   margin: 0;
-  background-color: rgb(46, 45, 45);
+  background-color: var(--background-dark);
+  color: var(--text-light);
 }
 
 .header--image {
   display: flex;
   height: 100%;
-  margin: 0 1%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  mix-blend-mode: var(--background-dark)
 }
 
 .header {
   display: flex;
-  height: 80px;
+  height: 70px;
   align-items: center;
-  padding: 20px;
-  background-color: #111111;
-  color: azure;
-  border: 5px solid #111111;
-  border-radius: 8px;
+  padding: 0 2rem;
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header--title {
   margin: 0 auto;
+  justify-content: space-between;
   font-size: large;
   font-style: oblique;
 }
 
 .hero {
-  --s: 100px;
-  --_g: #0000 90deg, rgba(30, 170, 170, 0.1) 0;
-  background: 
-    conic-gradient(from 90deg at 2px 2px, var(--_g)) 0 0 / var(--s) var(--s),
-    conic-gradient(from 90deg at 1px 1px, var(--_g)) 0 0 / calc(var(--s) / 5) calc(var(--s) / 5);
-  background-color: #1f1d1d;
-  opacity: 1;
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(
+    to bottom right,
+    rgba(30, 170, 170, 0.05),
+    rgba(226, 56, 56, 0.05)
+  );
 }
 
 .container {
+  max-width: 800px;
+  width: 100%;
+  padding: 3rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px; /* Adds even spacing between elements */
-  text-align: center;
+  gap: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .middle {
-  color: rgb(252, 251, 251);
-  font-size: 3em;
-  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, var(--text-light), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .input {
   display: flex;
+  gap: 1rem;
+  width: 100%;
   justify-content: center;
-  color: rgb(252, 251, 251);
-  font-size: 1em;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 input {
-  padding: 10px;
-  font-size: 1em;
-  width: 250px; /* Adjusted width for better visibility */
-  border-radius: 5px;
-  margin-bottom: 150px;
-  border: 1px solid rgb(252, 251, 251);
-  background-color: #333;
-  color: #fff;
+  flex: 1;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  transition: all 0.3s ease;
 }
 
-.click {
-  display: inline-block; /* Ensure it's not a block-level element */
-  color: rgb(24, 23, 23);
-  background-color: #e23838;
-  border: none; /* Remove border */
-  border-radius: 8px; /* Adjust to your design */
-  height: 48px;
-  padding-right: 15px;
-  margin-left: 10px; /* Add margin to separate from input */
-  
-  /* Adjust these for size */
-  padding: 5px 15px; /* Reduce vertical padding to make it shorter */
-  
-  font-size: 1em; /* Adjust size if necessary */
-  line-height: normal; /* Set to normal to avoid excessive height */
-  cursor: pointer; /* Change cursor to pointer */
-  min-width: 100px; /* Set a minimum width if desired */
+input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(30, 170, 170, 0.2);
+}
+
+.out-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .qr-code {
-  display: block;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-bottom: 150px;
+  width: 200px;
+  height: 200px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .short-link {
-  display: inline;
-  color: rgb(252, 251, 251);
-  font-size: 1em;
-  margin-bottom: 60%;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  text-align: center;
+  word-break: break-all;
 }
-.out-container {
-  display: inline;
-  padding-bottom: 50px;
 
-  flex-direction: column;
-  align-items: center;
+.short-link a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.short-link:hover {
 
-  text-decoration: underline;
-}  
+.short-link a:hover {
+  color: var(--text-light);
+}
 
-.copy-button {
-  display: inline-block;
-  color: rgb(24, 23, 23);
-  background-color: #e23838;
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.click, .copy-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: var(--primary-color);
+  color: white;
   border: none;
-  border-radius: 8px;
-  height: 48px;
-  padding-right: 15px;
-  margin-left: 10px;
-  padding: 5px 15px;
-  font-size: 1em;
-  line-height: normal;
   cursor: pointer;
-  min-width: 100px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.click:hover, .copy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(226, 56, 56, 0.3);
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .input {
+    flex-direction: column;
+  }
+
+  input {
+    max-width: 100%;
+  }
+
+  .middle {
+    font-size: 2rem;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
 }

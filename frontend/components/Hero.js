@@ -34,29 +34,58 @@ export default function Hero() {
     };
 
     return (
-        <main className="hero">
+        <section className="hero">
             <div className="container">
-                <h1 className="middle">ShortQR</h1>
+                <h1 className="middle">Shorten Your URL</h1>
                 <div className="input">
                     <input
-                        type="url"
-                        placeholder="Enter URL to shorten"
+                        type="text"
+                        placeholder="Enter your URL here..."
+                        aria-label="URL input"
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
                     />
-                    <button className='click' onClick={handleSubmit}>Shorten</button>
+                    <button className='click' onClick={handleSubmit}>
+                        <span>Shorten</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                    </button>
                 </div>
-                {error && <div style={{ color: 'red' }}>{error}</div>} {/* Display error if any */}
+
+                {error && <div className="error-message">{error}</div>}
+
                 {response && (
                     <div className='out-container'>
-                        <div>
-                        <img className='qr-code' src={`data:image/png;base64,${response.qr_code}`} alt="QR Code" /> {/* Display QR Code if available */}
-                        <h2 className='short-link'>Shortened URL: <a href={response.short_url} target="_blank" rel="noopener noreferrer">{response.short_url}</a></h2>
-                        <button className='copy-button' onClick={() => copyToClipboard(response.short_url)}>Copy</button>
+                        <img 
+                            className='qr-code' 
+                            src={`data:image/png;base64,${response.qr_code}`} 
+                            alt="QR Code" 
+                        />
+                        <div className="short-link">
+                            <h2>Shortened URL:</h2>
+                            <a 
+                                href={response.short_url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                {response.short_url}
+                            </a>
                         </div>
+                        <button 
+                            className='copy-button' 
+                            onClick={() => copyToClipboard(response.short_url)}
+                        >
+                            <span>Copy</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
                     </div>
                 )}
             </div>
-        </main>
+        </section>
     );
 }
